@@ -6,7 +6,10 @@ class Fraction(object):
             raise TypeError ("Numerator cannot be a decimal.")
         if isinstance(denominator, float):
             raise TypeError ("Denominator cannot be a float.")
-
+        
+        if denominator == 0:
+            raise ZeroDivisionError ("Denominator cannot be zero.")
+        
     def gcd(a, b):
         #TODO
         pass
