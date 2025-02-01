@@ -10,6 +10,10 @@ class Fraction(object):
         if denominator == 0:
             raise ZeroDivisionError ("Denominator cannot be zero.")
         
+        if isinstance(numerator, int) and isinstance(denominator, int):
+            self.numerator = numerator
+            self.denominator = denominator
+        
     def gcd(a, b):
         #TODO
         pass
