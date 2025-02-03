@@ -1,27 +1,40 @@
 class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
+        try:
+            if isinstance(numerator, float) or isinstance(denominator, float):
+                raise TypeError
+            
+            if isinstance(numerator, str):
+                fraction_string = numerator.split("/", 1)
+                # too many inputs
+                if len(fraction_string) > 2:
+                    raise ValueError
+                # checking for floats or words in the string
+                try:
+                    self.numerator = int(fraction_string[0])
+                    self.denominator = int(fraction_string[1])
+                except ValueError:
+                    raise ValueError
+                
+            elif isinstance(numerator, int) and isinstance(denominator, int):
+                self.numerator = numerator
+                self.denominator = denominator
+                
+            if self.denominator == 0:
+                raise ZeroDivisionError
 
-        if isinstance(numerator, float):
-            raise TypeError ("Numerator cannot be a decimal.")
-        if isinstance(denominator, float):
-            raise TypeError ("Denominator cannot be a float.")
+        except (TypeError, ValueError):
+            self.numerator = 0
+            self.denominator = 1
         
-        if isinstance(numerator, str):
-            string_list = numerator.split("/", 1)
-            self.numerator = int(string_list[0])
-            self.denominator = int(string_list[1])
-        elif isinstance(numerator, int) and isinstance(denominator, int):
-            self.numerator = numerator
-            self.denominator = denominator
-        
-        if self.denominator == 0:
+        except ZeroDivisionError:
             raise ZeroDivisionError ("Denominator cannot be zero.")
         
         if self.numerator < 0 and self.denominator < 0:
             self.numerator *= -1
             self.denominator *= -1
-        elif self.numerator > 0 and self.denominator < 0:
+        elif self.numerator > 0 > self.denominator:
             self.numerator *= -1
             self.denominator *= -1
         
