@@ -25,6 +25,11 @@ class Fraction(object):
             self.numerator *= -1
             self.denominator *= -1
         
+        greatest_common_div = Fraction.gcd(self.numerator, self.denominator)
+        if greatest_common_div != 0:
+            self.numerator //= greatest_common_div
+            self.denominator //= greatest_common_div
+        
     def gcd(a, b):
         if a == 0 or b == 0:
             return 0
