@@ -7,9 +7,6 @@ class Fraction(object):
         if isinstance(denominator, float):
             raise TypeError ("Denominator cannot be a float.")
         
-        if denominator == 0:
-            raise ZeroDivisionError ("Denominator cannot be zero.")
-        
         if isinstance(numerator, str):
             string_list = numerator.split("/", 1)
             self.numerator = int(string_list[0])
@@ -18,12 +15,20 @@ class Fraction(object):
             self.numerator = numerator
             self.denominator = denominator
         
+        if self.denominator == 0:
+            raise ZeroDivisionError ("Denominator cannot be zero.")
+        
         if self.numerator < 0 and self.denominator < 0:
             self.numerator *= -1
             self.denominator *= -1
         elif self.numerator > 0 and self.denominator < 0:
             self.numerator *= -1
             self.denominator *= -1
+        
+        greatest_common_div = Fraction.gcd(self.numerator, self.denominator)
+        if greatest_common_div != 0:
+            self.numerator //= greatest_common_div
+            self.denominator //= greatest_common_div
         
     def gcd(a, b):
         if a == 0 or b == 0:
