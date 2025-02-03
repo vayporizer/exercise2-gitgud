@@ -17,24 +17,14 @@ class Fraction(object):
                     self.denominator = int(fraction_string[1])
                 except (ValueError):
                     raise ValueError
-                
+            
+            elif isinstance(numerator, int) and isinstance(denominator, int):
+                self.numerator = numerator
+                self.denominator = denominator
+
         except (TypeError, ValueError):
             self.numerator = 0
             self.denominator = 1
-
-
-        # if isinstance(numerator, float):
-        #     raise TypeError ("Numerator cannot be a decimal.")
-        # if isinstance(denominator, float):
-        #     raise TypeError ("Denominator cannot be a float.")
-        
-        # if isinstance(numerator, str):
-        #     string_list = numerator.split("/", 1)
-        #     self.numerator = int(string_list[0])
-        #     self.denominator = int(string_list[1])
-        # elif isinstance(numerator, int) and isinstance(denominator, int):
-        #     self.numerator = numerator
-        #     self.denominator = denominator
         
         # if self.denominator == 0:
         #     raise ZeroDivisionError ("Denominator cannot be zero.")
