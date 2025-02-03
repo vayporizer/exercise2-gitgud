@@ -32,12 +32,9 @@ class Fraction(object):
             while b:
                 a, b = b, a % b
             return abs(a)
-        #TODO
-        pass
 
     def get_numerator(self):
-        #TODO
-        pass
+        return str(self.numerator)
 
     def get_denominator(self):
         #TODO
