@@ -5,7 +5,20 @@ class Fraction(object):
         try:
             if isinstance(numerator, float) or isinstance(denominator, float):
                 raise TypeError
-        except (TypeError):
+            
+            if isinstance(numerator, str):
+                fraction_string = numerator.split("/", 1)
+                # too many inputs
+                if len(fraction_string) > 2:
+                    raise ValueError
+                # checking for floats or words in the string
+                try:
+                    self.numerator = int(fraction_string[0])
+                    self.denominator = int(fraction_string[1])
+                except (ValueError):
+                    raise ValueError
+                
+        except (TypeError, ValueError):
             self.numerator = 0
             self.denominator = 1
 
