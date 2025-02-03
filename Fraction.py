@@ -15,19 +15,22 @@ class Fraction(object):
                 try:
                     self.numerator = int(fraction_string[0])
                     self.denominator = int(fraction_string[1])
-                except (ValueError):
+                except ValueError:
                     raise ValueError
             
             elif isinstance(numerator, int) and isinstance(denominator, int):
                 self.numerator = numerator
                 self.denominator = denominator
+            
+            if self.denominator == 0:
+                raise ZeroDivisionError
 
         except (TypeError, ValueError):
             self.numerator = 0
             self.denominator = 1
         
-        # if self.denominator == 0:
-        #     raise ZeroDivisionError ("Denominator cannot be zero.")
+        except ZeroDivisionError:
+            raise ZeroDivisionError ("Denominator cannot be zero.")
         
         if self.numerator < 0 and self.denominator < 0:
             self.numerator *= -1
