@@ -1,7 +1,6 @@
 class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
-
         try:
             if isinstance(numerator, float) or isinstance(denominator, float):
                 raise TypeError
@@ -17,11 +16,11 @@ class Fraction(object):
                     self.denominator = int(fraction_string[1])
                 except ValueError:
                     raise ValueError
-            
+                
             elif isinstance(numerator, int) and isinstance(denominator, int):
                 self.numerator = numerator
                 self.denominator = denominator
-            
+                
             if self.denominator == 0:
                 raise ZeroDivisionError
 
@@ -35,7 +34,7 @@ class Fraction(object):
         if self.numerator < 0 and self.denominator < 0:
             self.numerator *= -1
             self.denominator *= -1
-        elif self.numerator > 0 and self.denominator < 0:
+        elif self.numerator > 0 > self.denominator:
             self.numerator *= -1
             self.denominator *= -1
         
