@@ -18,6 +18,13 @@ class Fraction(object):
             self.numerator = numerator
             self.denominator = denominator
         
+        if self.numerator < 0 and self.denominator < 0:
+            self.numerator *= -1
+            self.denominator *= -1
+        elif self.numerator > 0 and self.denominator < 0:
+            self.numerator *= -1
+            self.denominator *= -1
+        
     def gcd(a, b):
         #TODO
         pass
