@@ -7,9 +7,6 @@ class Fraction(object):
         if isinstance(denominator, float):
             raise TypeError ("Denominator cannot be a float.")
         
-        if denominator == 0:
-            raise ZeroDivisionError ("Denominator cannot be zero.")
-        
         if isinstance(numerator, str):
             string_list = numerator.split("/", 1)
             self.numerator = int(string_list[0])
