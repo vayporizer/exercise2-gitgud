@@ -26,6 +26,12 @@ class Fraction(object):
             self.denominator *= -1
         
     def gcd(a, b):
+        if a == 0 or b == 0:
+            return 0
+        else:
+            while b:
+                a, b = b, a % b
+            return abs(a)
         #TODO
         pass
 
